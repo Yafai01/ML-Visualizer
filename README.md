@@ -126,7 +126,13 @@ Build command: npm run build
 
 Output: dist
 
-Deploys globally with HTTPS.
+🚀 Deployment (Vercel)
+
+This project is deployed globally using Vercel:
+
+https://ml-visualizer-nine.vercel.app/
+
+Every push to main auto-deploys.
 
 🧑‍💻 Author
 Yafai (AIML Student)
