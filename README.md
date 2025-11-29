@@ -1,16 +1,136 @@
-# React + Vite
+# 🌌 Yafai Labs — Machine Learning Visualizer  
+Interactive ML Playground built with React, Vite, and modern UI animations.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete collection of ML algorithm visualizers including:
+- Linear Regression  
+- K-Means Clustering  
+- Neural Network Forward Pass  
+- Decision Tree Splits  
+- Logistic Regression  
+- SVM Margins  
+- PCA Dimensionality Reduction  
 
-Currently, two official plugins are available:
+Designed with a dashboard layout, sidebar navigation, dark/light modes, and smooth Framer Motion animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Live Demo  
+🔗 **https://ml-visualizer.vercel.app**  
+(Replace with your actual deployed link after deployment.)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🎨 Modern Dashboard UI
+- Animated sidebar navigation  
+- Theme toggle (light/dark)  
+- Smooth fade transitions  
+- Interactive cards & clean grid layout  
+
+### 🤖 Machine Learning Modules
+Each module includes interactive controls & real-time visuals:
+
+| Algorithm | Features |
+|----------|----------|
+| **Linear Regression** | Adjustable dataset, live slope intercept update |
+| **K-Means** | Auto-run, cluster steps, centroid animations |
+| **Neural Network** | Forward-pass visualization with sigmoid activation |
+| **Decision Tree** | Gini impurity & threshold splitting |
+| **Logistic Regression** | Adjustable boundary & dataset separation |
+| **SVM** | Margin visualization with support vectors |
+| **PCA** | 2D → 1D projection with axis rotation |
+
+### 🧭 Navigation
+- Home (dashboard)  
+- Each algorithm has its own page  
+- Profile & settings page  
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- **React 18**
+- **Vite**
+- **React Router DOM**
+- **Framer Motion**
+- **Chart.js + react-chartjs-2**
+
+### UI + Experience
+- Custom CSS (no Tailwind)
+- Page animations
+- Sidebar transitions
+- Slider + card styles
+- Dark/Light theme context
+
+---
+
+## 📁 Project Structure
+
+src/
+components/
+Sidebar.jsx
+PageWrapper.jsx
+LinearRegression.jsx
+KMeans.jsx
+NeuralNetwork.jsx
+DecisionTree.jsx
+LogisticRegression.jsx
+SVM.jsx
+PCA.jsx
+
+pages/
+Home.jsx
+LinearPage.jsx
+KMeansPage.jsx
+NeuralPage.jsx
+TreePage.jsx
+LogisticPage.jsx
+SVMPage.jsx
+PCAPage.jsx
+ProfilePage.jsx
+
+context/
+ThemeContext.jsx
+
+App.jsx
+main.jsx
+index.css
+
+yaml
+Copy code
+
+---
+
+## ⚙️ Running Locally
+
+```bash
+git clone https://github.com/Yafai01/ML-Visualizer.git
+cd ML-Visualizer
+npm install
+npm run dev
+📦 Build for Production
+bash
+Copy code
+npm run build
+Build output goes into /dist.
+
+🌍 Deploy to Web (Free)
+Recommended: Vercel
+Connect GitHub repo
+
+Import project
+
+Build command: npm run build
+
+Output: dist
+
+Deploys globally with HTTPS.
+
+🧑‍💻 Author
+Yafai (AIML Student)
+💡 “I don’t give up — I level up.”
+
+This project is part of my journey into full-stack machine learning visualization and web development.
+
