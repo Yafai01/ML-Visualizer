@@ -1,39 +1,25 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-
-const modules = [
-  { name: "Linear Regression", link: "/linear-regression" },
-  { name: "K-Means Clustering", link: "/kmeans" },
-  { name: "Neural Network", link: "/neural" },
-  { name: "Decision Tree", link: "/tree" },
-  { name: "Logistic Regression", link: "/logistic" },
-  { name: "SVM Margins", link: "/svm" },
-  { name: "PCA Reduction", link: "/pca" }
-];
+import { MODULES } from "../modules";
+import PageHeader from "../components/ui/PageHeader";
 
 export default function Home() {
   return (
-<div className="container" style={{ marginLeft: "40px" }}>
-      <h1>Yafai ML-Playground</h1>
-      <p style={{ opacity: 0.7, marginTop: "-10px" }}>
-        Explore ML algorithms interactively.
-      </p>
+    <div className="page">
+      <PageHeader eyebrow="Interactive machine learning" title="See classic ML algorithms learn">
+        Every model on this site is trained live in your browser on small 2-D datasets you can edit:
+        add, drag and erase points, generate new data, and watch the decision boundaries, losses and
+        metrics update as they are actually computed.
+      </PageHeader>
 
-      <div className="grid">
-        {modules.map((m, i) => (
-          <Link key={i} to={m.link}>
-            <motion.div
-              className="card hover"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
-            >
-              <h3>{m.name}</h3>
-              <p>Open module →</p>
-            </motion.div>
+      <div className="module-grid">
+        {MODULES.map((m) => (
+          <Link key={m.path} to={m.path} className="module-card">
+            <span className="icon-chip" aria-hidden="true">
+              <m.Icon size={20} />
+            </span>
+            <h2>{m.title}</h2>
+            <p>{m.summary}</p>
+            <span className="method">{m.method}</span>
           </Link>
         ))}
       </div>

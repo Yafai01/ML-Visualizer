@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Test / tooling output
+coverage
+
+# Local environment files
+.env
+.env.*
+!.env.example
