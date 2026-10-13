@@ -1,34 +1,58 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-
+import { useCallback, useEffect, useState } from "react";
+import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import Sidebar, { BrandMark } from "./components/Sidebar";
+import { MenuIcon } from "./components/Icons";
+import { MODULES } from "./modules";
 import Home from "./pages/Home";
-import LinearPage from "./pages/LinearPage";
-import KMeansPage from "./pages/KMeansPage";
-import NeuralPage from "./pages/NeuralPage";
-import TreePage from "./pages/TreePage";
-import LogisticPage from "./pages/LogisticPage";
-import SVMPage from "./pages/SVMPage";
-import PCAPage from "./pages/PCAPage";
-import ProfilePage from "./pages/ProfilePage";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
+
+function useScrollToTopOnNavigate() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+}
 
 export default function App() {
-  return (
-    <div style={{ display: "flex" }}>
-      <Sidebar />
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  useScrollToTopOnNavigate();
 
-      <div style={{ marginLeft: "250px", width: "100%" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/linear-regression" element={<LinearPage />} />
-          <Route path="/kmeans" element={<KMeansPage />} />
-          <Route path="/neural" element={<NeuralPage />} />
-          <Route path="/tree" element={<TreePage />} />
-          <Route path="/logistic" element={<LogisticPage />} />
-          <Route path="/svm" element={<SVMPage />} />
-          <Route path="/pca" element={<PCAPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-        </Routes>
+  return (
+    <div className="shell">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Sidebar open={menuOpen} onClose={closeMenu} />
+      <div className="main">
+        <header className="topbar">
+          <Link to="/" className="brand">
+            <BrandMark />
+            Yafai ML Lab
+          </Link>
+          <button
+            type="button"
+            className="btn btn-icon"
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+            aria-controls="sidebar"
+            onClick={() => setMenuOpen(true)}
+          >
+            <MenuIcon />
+          </button>
+        </header>
+        <main id="main" tabIndex={-1}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {MODULES.map((m) => (
+              <Route key={m.path} path={m.path} element={<m.Component />} />
+            ))}
+            <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Navigate to="/about" replace />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
       </div>
     </div>
   );

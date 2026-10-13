@@ -1,12 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-<link rel="icon" type="image/png" href="/src/assets/YAFAI-ML LAB.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yafai ML-Lab</title>
+    <meta name="description" content="Interactive visualizations of classic machine learning algorithms, trained live in your browser." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Yafai ML Lab</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the wrong theme.
+      try {
+        if (localStorage.getItem("ml-lab-theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
+    <noscript>This app needs JavaScript to run the visualizations.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
